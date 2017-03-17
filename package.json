@@ -1,0 +1,16 @@
+{
+  "name": "pretty-data",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Massimiliano Marcon",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^4.7.3",
+    "jsdom": "^9.12.0",
+    "phantom": "^4.0.1",
+    "randomstring": "^1.1.5"
+  },
+  "devDependencies": {
+    "topojson": "^2.2.0"
+  }
+}
