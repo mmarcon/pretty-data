@@ -1,8 +1,18 @@
-# pretty-data
+# Pretty Data
 
 This module allows the generation of [D3](https://d3js.org) visualizations on the server.
 
 Visualizations can be exported in HTML, SVG or PNG (via [PhantomJS](http://phantomjs.org/)).
+
+## Installation
+
+As simple as:
+
+`npm install prettydata`
+
+If you are more the [Yarn](https://yarnpkg.com) kind of guy then go for:
+
+`yarn add prettydata`
 
 ## Examples
 
