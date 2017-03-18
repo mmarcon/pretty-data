@@ -1,10 +1,10 @@
 //This example: https://bl.ocks.org/mbostock/4136647
 
+const npath = require('path');
 const PrettyData = require('..');
 
 const topojson = require('topojson');
 const us = require('./datasets/us.json');
-const output = require('./lib/output');
 
 const WIDTH = 960
 const HEIGHT = 600;
@@ -12,34 +12,52 @@ const HEIGHT = 600;
 const [,, format] = process.argv;
 
 const prettyData = new PrettyData(WIDTH, HEIGHT);
-const svg = prettyData.svg;
+const $ = prettyData.$;
 const d3 = PrettyData.d3;
 const path = d3.geoPath();
 
-svg.selectAll('defs')
+$.selectAll('defs')
   .append('path')
   .attr('id', 'nation')
   .attr('d', path(topojson.feature(us, us.objects.nation)));
 
-svg.append('use')
+$.append('use')
       .attr('xlink:href', '#nation')
       .attr('fill-opacity', 0.2)
       .attr('filter', 'url(#blur)');
 
-svg.append('use')
+$.append('use')
     .attr('xlink:href', '#nation')
     .attr('fill', '#fff');
 
-svg.append('path')
+$.append('path')
     .attr('fill', 'none')
     .attr('stroke', '#777')
     .attr('stroke-width', 0.35)
     .attr('d', path(topojson.mesh(us, us.objects.counties, function(a, b) { return (a.id / 1000 | 0) === (b.id / 1000 | 0); })));
 
-svg.append('path')
+$.append('path')
     .attr('fill', 'none')
     .attr('stroke', '#777')
     .attr('stroke-width', 0.70)
     .attr('d', path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
 
-output.generate(prettyData, format);
+switch (format) {
+    case 'html':
+        prettyData.html()
+            .then(htmlFile => PrettyData.to(htmlFile, npath.join(__dirname, 'out', `${npath.basename(__filename, '.js')}.html`)))
+            .catch(console.error);
+        break;
+    case 'svg':
+        prettyData.svg()
+            .then(svgFile => PrettyData.to(svgFile, npath.join(__dirname, 'out', `${npath.basename(__filename, '.js')}.svg`)))
+            .catch(console.error);
+        break;
+    case 'png':
+        prettyData.png()
+            .then(pngFile => PrettyData.to(pngFile, npath.join(__dirname, 'out', `${npath.basename(__filename, '.js')}.png`)))
+            .catch(console.error);
+        break;
+    default:
+        console.error(`${format} not supported.`);
+}
