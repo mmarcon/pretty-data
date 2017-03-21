@@ -59,12 +59,12 @@ prettyData.html()
 
 //Generate SVG file output
 prettyData.svg()
-    .then(htmlFile => PrettyData.to(htmlFile, 'myfile.svg')))
+    .then(svgFile => PrettyData.to(svgFile, 'myfile.svg')))
     .catch(console.error);
 
 //Generate PNG file output
 prettyData.png()
-    .then(htmlFile => PrettyData.to(htmlFile, 'myfile.png')))
+    .then(pngFile => PrettyData.to(pngFile, 'myfile.png')))
     .catch(console.error);
 ```
 
