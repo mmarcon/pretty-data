@@ -35,3 +35,28 @@ Minimally adapted from: [https://bl.ocks.org/maybelinot/5552606564ef37b5de7e47ed
 In this example the data is pulled on the fly as JSON using [node-fetch](https://github.com/bitinn/node-fetch).
 
 ![flare example with data fetched on the fly](https://raw.githubusercontent.com/mmarcon/pretty-data/master/examples/out/flare.png)
+
+### Heatmap (with styles)
+
+Source: [http://bl.ocks.org/ganezasan/dfe585847d65d0742ca7d0d1913d50e1](http://bl.ocks.org/ganezasan/dfe585847d65d0742ca7d0d1913d50e1).
+
+In this example the chart is styled using the css API exposed by Pretty Data:
+
+```javascript
+prettyData.css = {
+    'rect.bordered': {
+        stroke: '#E6E6E6',
+        strokeWidth: '2px'
+    },
+    'text.mono': {
+        fontSize: '9pt',
+        fontFamily: 'Consolas, courier',
+        fill: '#aaa'
+    },
+    'text.axis-workweek, text.axis-worktime': {
+        fill: '#000'
+    }
+};
+```
+
+![heatmap example with css](https://raw.githubusercontent.com/mmarcon/pretty-data/master/examples/out/heatmap.png)
