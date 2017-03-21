@@ -14,6 +14,60 @@ If you are more the [Yarn](https://yarnpkg.com) kind of guy then go for:
 
 `yarn add prettydata`
 
+## Usage
+
+Using Pretty Data is very simple. If you know d3, you know how to use Pretty Data.
+
+```javascript
+const PrettyData = require('prettydata');
+
+const WIDTH = 1280
+const HEIGHT = 800;
+
+const prettyData = new PrettyData(WIDTH, HEIGHT);
+
+//This is the root SVG object where the entire chart will be rendered
+const svg = prettyData.$;
+
+//This is the same d3 object you'd use in a browser
+const d3 = PrettyData.d3;
+
+//Optionally, set some style rules
+prettyData.css = {
+    'rect.bordered': {
+        stroke: '#E6E6E6',
+        strokeWidth: '2px'
+    },
+    'text.mono': {
+        fontSize: '9pt',
+        fontFamily: 'Consolas, courier',
+        fill: '#aaa'
+    },
+    'text.axis-workweek, text.axis-worktime': {
+        fill: '#000'
+    }
+};
+
+//
+//Do your d3 stuff here...
+//
+
+//Generate HTML file output
+prettyData.html()
+    .then(htmlFile => PrettyData.to(htmlFile, 'myfile.html')))
+    .catch(console.error);
+
+//Generate SVG file output
+prettyData.svg()
+    .then(htmlFile => PrettyData.to(htmlFile, 'myfile.svg')))
+    .catch(console.error);
+
+//Generate PNG file output
+prettyData.png()
+    .then(htmlFile => PrettyData.to(htmlFile, 'myfile.png')))
+    .catch(console.error);
+```
+
 ## Examples
 
 ### US TopoJSON
