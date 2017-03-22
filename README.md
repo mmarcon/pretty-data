@@ -102,7 +102,7 @@ svg.append("circle")       // append a cicle to the svg
 
 When the PNG, SVG and HTML files are generated, the visualization will be in its completed status, as if the transition already happened.
 
-**This method is still very experimental and currently only covers the `delay, `duration` and  `ease` methods of the [Transition](https://github.com/d3/d3-transition/blob/master/src/transition/index.js) object.**
+**This method is still very experimental and currently only covers the `delay`, `duration` and  `ease` methods of the [Transition](https://github.com/d3/d3-transition/blob/master/src/transition/index.js) object.**
 
 ## Examples
 
