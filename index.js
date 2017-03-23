@@ -100,6 +100,12 @@ class PrettyData {
      * @param {String} dest destination file path
      */
     static to(src, dest) {
+        if(!dest) {
+            //This means we are using this method in the form
+            //prettyData.svg().then(PrettyData.to('myfile.svg')))
+            dest = src;
+            return src => this.to(src, dest);
+        }
         return new Promise((resolve, reject) => {
             fs.rename(src, dest, error => {
                 if(error) {

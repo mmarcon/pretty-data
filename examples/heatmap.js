@@ -109,17 +109,17 @@ legend.exit().remove();
 switch (format) {
     case 'html':
         prettyData.html()
-            .then(htmlFile => PrettyData.to(htmlFile, npath.join(__dirname, 'out', `${npath.basename(__filename, '.js')}.html`)))
+            .then(PrettyData.to(npath.join(__dirname, 'out', `${npath.basename(__filename, '.js')}.html`)))
             .catch(console.error);
         break;
     case 'svg':
         prettyData.svg()
-            .then(svgFile => PrettyData.to(svgFile, npath.join(__dirname, 'out', `${npath.basename(__filename, '.js')}.svg`)))
+            .then(PrettyData.to(npath.join(__dirname, 'out', `${npath.basename(__filename, '.js')}.svg`)))
             .catch(console.error);
         break;
     case 'png':
         prettyData.png()
-            .then(pngFile => PrettyData.to(pngFile, npath.join(__dirname, 'out', `${npath.basename(__filename, '.js')}.png`)))
+            .then(PrettyData.to(npath.join(__dirname, 'out', `${npath.basename(__filename, '.js')}.png`)))
             .catch(console.error);
         break;
     default:

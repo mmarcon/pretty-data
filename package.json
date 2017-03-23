@@ -1,6 +1,6 @@
 {
   "name": "prettydata",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Intuitive way of creating d3 visualization headlessly.",
   "main": "index.js",
   "author": "Massimiliano Marcon",
