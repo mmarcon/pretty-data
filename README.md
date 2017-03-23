@@ -54,17 +54,17 @@ prettyData.css = {
 
 //Generate HTML file output
 prettyData.html()
-    .then(htmlFile => PrettyData.to(htmlFile, 'myfile.html')))
+    .then(PrettyData.to('myfile.html')))
     .catch(console.error);
 
 //Generate SVG file output
 prettyData.svg()
-    .then(svgFile => PrettyData.to(svgFile, 'myfile.svg')))
+    .then(PrettyData.to('myfile.svg')))
     .catch(console.error);
 
 //Generate PNG file output
 prettyData.png()
-    .then(pngFile => PrettyData.to(pngFile, 'myfile.png')))
+    .then(PrettyData.to('myfile.png')))
     .catch(console.error);
 ```
 
