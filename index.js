@@ -60,7 +60,8 @@ class PrettyData {
                 .then(ph => (_ph = ph) && ph.createPage())
                 .then(page => (_page = page) && page.open(`file://${svgFile}`))
                 .then(() => _page.render(pngFile, {format: 'png'}))
-                .then(() => (_page.close() && _ph.exit()))
+                .then(() => _page.close())
+                .then(() => _ph.exit())
                 .then(() => PrettyData._deleteFile(svgFile))
                 .then(() => resolve(pngFile))
                 .catch(reject);
